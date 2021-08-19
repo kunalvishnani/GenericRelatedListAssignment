@@ -1,0 +1,24 @@
+<template>
+    <!--Spiner-->
+    <div if:true={isLoaded} class="slds-is-relative">
+        <lightning-spinner
+            alternative-text="Loading..." variant="brand">
+        </lightning-spinner>
+    </div>
+    <!--Data Table to show data-->
+    <template if:false = {error}>
+        <lightning-card icon-name={icon}>
+            <lightning-datatable
+                        key-field="id"
+                        data={data}
+                        columns={columns}>
+            </lightning-datatable>
+        </lightning-card>   
+    </template>
+    <!--For showing error message-->
+    <template if:true={error}>
+        <div style="background-color:white;">
+            {error}
+        </div>
+    </template>
+</template>
